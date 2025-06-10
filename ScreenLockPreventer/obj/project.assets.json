@@ -1,32 +1,38 @@
 {
   "version": 3,
   "targets": {
-    "net8.0-windows7.0": {},
-    "net8.0-windows7.0/win-x64": {}
+    "net8.0-windows7.0": {}
   },
   "libraries": {},
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": []
   },
   "packageFolders": {
-    "/home/swebot/.nuget/packages/": {}
+    "C:\\Users\\wanbin\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/app/ScreenLockPreventer/ScreenLockPreventer.csproj",
+      "projectUniqueName": "D:\\Programming\\BlockScreen\\ScreenLockPreventer\\ScreenLockPreventer.csproj",
       "projectName": "ScreenLockPreventer",
-      "projectPath": "/app/ScreenLockPreventer/ScreenLockPreventer.csproj",
-      "packagesPath": "/home/swebot/.nuget/packages/",
-      "outputPath": "/app/ScreenLockPreventer/obj/",
+      "projectPath": "D:\\Programming\\BlockScreen\\ScreenLockPreventer\\ScreenLockPreventer.csproj",
+      "packagesPath": "C:\\Users\\wanbin\\.nuget\\packages\\",
+      "outputPath": "D:\\Programming\\BlockScreen\\ScreenLockPreventer\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/home/swebot/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\wanbin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0-windows"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -60,16 +66,6 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.NETCore.App.Host.win-x64",
-            "version": "[8.0.16, 8.0.16]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[8.0.16, 8.0.16]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
@@ -78,12 +74,7 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "/home/jules/.dotnet/sdk/8.0.410/PortableRuntimeIdentifierGraph.json"
-      }
-    },
-    "runtimes": {
-      "win-x64": {
-        "#import": []
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

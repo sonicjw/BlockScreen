@@ -1,0 +1,16 @@
+D:\Programming\BlockScreen\ScreenLockPreventer\bin\Debug\net8.0-windows\ScreenLockPreventer.exe
+D:\Programming\BlockScreen\ScreenLockPreventer\bin\Debug\net8.0-windows\ScreenLockPreventer.deps.json
+D:\Programming\BlockScreen\ScreenLockPreventer\bin\Debug\net8.0-windows\ScreenLockPreventer.runtimeconfig.json
+D:\Programming\BlockScreen\ScreenLockPreventer\bin\Debug\net8.0-windows\ScreenLockPreventer.dll
+D:\Programming\BlockScreen\ScreenLockPreventer\bin\Debug\net8.0-windows\ScreenLockPreventer.pdb
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.GeneratedMSBuildEditorConfig.editorconfig
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.AssemblyInfoInputs.cache
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.AssemblyInfo.cs
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.csproj.CoreCompileInputs.cache
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.sourcelink.json
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.dll
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\refint\ScreenLockPreventer.dll
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.pdb
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ScreenLockPreventer.genruntimeconfig.cache
+D:\Programming\BlockScreen\ScreenLockPreventer\obj\Debug\net8.0-windows\ref\ScreenLockPreventer.dll
+D:\Programming\BlockScreen\ScreenLockPreventer\bin\Debug\net8.0-windows\Assets\ScreenLockPreventer.ico

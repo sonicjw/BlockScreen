@@ -1,6 +1,6 @@
 using System;
-using System;
 using System.Drawing;
+using System.IO; // Add this line for Path and File operations
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Microsoft.VisualBasic;
@@ -57,8 +57,25 @@ namespace ScreenLockPreventer
         private void InitializeNotifyIcon()
         {
             notifyIcon1.ContextMenuStrip = contextMenuStrip1;
-            // Text is set in SetInitialState and updated dynamically
-            notifyIcon1.Icon = SystemIcons.Application; // Load a default system icon
+            // Use custom icon from Assets folder if available
+            try
+            {
+                string iconPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets", "ScreenLockPreventer.ico");
+                if (File.Exists(iconPath))
+                {
+                    notifyIcon1.Icon = new Icon(iconPath);
+                }
+                else
+                {
+                    // Fall back to system icon if custom icon not found
+                    notifyIcon1.Icon = SystemIcons.Application;
+                }
+            }
+            catch
+            {
+                // Use system icon in case of any error
+                notifyIcon1.Icon = SystemIcons.Application;
+            }
             notifyIcon1.Visible = true;
         }
 
@@ -93,11 +110,11 @@ namespace ScreenLockPreventer
 
         private void SetInitialState()
         {
-            // Default to disabled (AllowScreenLock)
-            AllowScreenLock();
-            disableMenuItem.Checked = true;
-            enableMenuItem.Checked = false;
-            notifyIcon1.Text = "Screen Lock Preventer (Inactive)";
+            // Default to enabled (PreventScreenLock)
+            PreventScreenLock();
+            enableMenuItem.Checked = true;
+            disableMenuItem.Checked = false;
+            notifyIcon1.Text = "Screen Lock Preventer (Active)";
             if (runOnStartupMenuItem != null) // Ensure it's initialized
             {
                 runOnStartupMenuItem.Checked = IsStartupEnabled();
@@ -178,7 +195,7 @@ namespace ScreenLockPreventer
 
         private void SetTimerMenuItem_Click(object? sender, EventArgs e)
         {
-            string input = Interaction.InputBox("Enter duration in hours to keep screen awake:", "Set Timer", "1");
+            string input = Interaction.InputBox("Enter duration in hours to keep screen awake:", "Set Timer", "9");
             if (double.TryParse(input, out double hours) && hours > 0)
             {
                 if (disableTimer == null) // Should not happen if constructor ran correctly
@@ -239,7 +256,8 @@ namespace ScreenLockPreventer
         /// </summary>
         public void PreventScreenLock()
         {
-            SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED | ES_DISPLAY_REQUIRED);
+            // Only use ES_CONTINUOUS and ES_SYSTEM_REQUIRED to allow screensaver to run
+            SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
         }
 
         /// <summary>

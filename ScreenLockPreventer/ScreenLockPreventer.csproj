@@ -9,9 +9,19 @@
     <PlatformTarget>x64</PlatformTarget>
     <AssemblyName>ScreenLockPreventer</AssemblyName>
     <RootNamespace>ScreenLockPreventer</RootNamespace>
+    <!-- Set application icon -->
+    <ApplicationIcon>Assets\ScreenLockPreventer.ico</ApplicationIcon>
   </PropertyGroup>
 
+  <!-- Include resource files -->
   <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
+    <Content Include="Assets\ScreenLockPreventer.ico">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 </Project>
+
+<!-- 移除这个ItemGroup，因为不需要Microsoft.VisualBasic引用 -->
+<!-- <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup> -->
