@@ -11,6 +11,8 @@
     <RootNamespace>ScreenLockPreventer</RootNamespace>
     <!-- Set application icon -->
     <ApplicationIcon>Assets\ScreenLockPreventer.ico</ApplicationIcon>
+    <!-- Enable unsafe code for P/Invoke calls -->
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
 
   <!-- Include resource files -->

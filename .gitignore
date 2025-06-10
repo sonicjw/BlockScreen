@@ -1,0 +1,30 @@
+# Build results
+bin/
+obj/
+
+# Publish output
+published_app_folder/
+
+# MSIX packages
+*.msix
+*.appx
+
+# Visual Studio files
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Temporary files
+*.tmp
+*.temp
+*.log
+
+# OS generated files
+Thumbs.db
+.DS_Store
