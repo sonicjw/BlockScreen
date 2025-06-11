@@ -9,13 +9,25 @@
     <PlatformTarget>x64</PlatformTarget>
     <AssemblyName>ScreenLockPreventer</AssemblyName>
     <RootNamespace>ScreenLockPreventer</RootNamespace>
-    <!-- Set application icon -->
     <ApplicationIcon>Assets\ScreenLockPreventer.ico</ApplicationIcon>
-    <!-- Enable unsafe code for P/Invoke calls -->
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    
+    <!-- 自包含部署配置（不使用AOT） -->
+    <PublishAot>false</PublishAot>
+    <SelfContained>true</SelfContained>
+    <PublishSingleFile>true</PublishSingleFile>
+    <RuntimeIdentifier>win-x64</RuntimeIdentifier>
+    <IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+    <IncludeAllContentForSelfExtract>true</IncludeAllContentForSelfExtract>
+    <EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+    
+    <!-- 优化设置 -->
+    <PublishTrimmed>false</PublishTrimmed>
+    <PublishReadyToRun>true</PublishReadyToRun>
+    <TieredCompilation>false</TieredCompilation>
   </PropertyGroup>
 
-  <!-- Include resource files -->
+  <!-- 包含资源文件 -->
   <ItemGroup>
     <Content Include="Assets\ScreenLockPreventer.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -23,7 +35,4 @@
   </ItemGroup>
 </Project>
 
-<!-- 移除这个ItemGroup，因为不需要Microsoft.VisualBasic引用 -->
-<!-- <ItemGroup>
-    <Reference Include="Microsoft.VisualBasic" />
-  </ItemGroup> -->
+

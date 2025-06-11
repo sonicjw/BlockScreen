@@ -8,16 +8,19 @@ using Microsoft.Win32;
 
 namespace ScreenLockPreventer
 {
+    // 如果使用了反射，需要添加AOT兼容的属性
+    using System.Diagnostics.CodeAnalysis;
+
     public partial class Form1 : Form
     {
         // Define EXECUTION_STATE flags
         private const uint ES_CONTINUOUS = 0x80000000;
         private const uint ES_SYSTEM_REQUIRED = 0x00000001;
-        private const uint ES_DISPLAY_REQUIRED = 0x00000002;
 
         // Import SetThreadExecutionState
-        [DllImport("kernel32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        private static extern uint SetThreadExecutionState(uint esFlags);
+        [LibraryImport("kernel32.dll", SetLastError = true)]
+        [UnmanagedCallConv(CallConvs = new Type[] { typeof(System.Runtime.CompilerServices.CallConvStdcall) })]
+        private static partial uint SetThreadExecutionState(uint esFlags);
 
         private ToolStripMenuItem enableMenuItem = null!;
         private ToolStripMenuItem disableMenuItem = null!;
@@ -93,11 +96,13 @@ namespace ScreenLockPreventer
             exitMenuItem = new ToolStripMenuItem("Exit");
             exitMenuItem.Click += ExitMenuItem_Click;
 
-            runOnStartupMenuItem = new ToolStripMenuItem("Run on Startup");
-            runOnStartupMenuItem.CheckOnClick = true;
+            runOnStartupMenuItem = new ToolStripMenuItem("Run on Startup")
+            {
+                CheckOnClick = true
+            };
             runOnStartupMenuItem.Click += RunOnStartupMenuItem_Click;
 
-            contextMenuStrip1.Items.AddRange(new ToolStripItem[] {
+            contextMenuStrip1.Items.AddRange([
                 enableMenuItem,
                 disableMenuItem,
                 setTimerMenuItem,
@@ -105,7 +110,7 @@ namespace ScreenLockPreventer
                 runOnStartupMenuItem, // Added here
                 new ToolStripSeparator(), // Separator before Exit
                 exitMenuItem
-            });
+            ]);
         }
 
         private void SetInitialState()
@@ -157,7 +162,7 @@ namespace ScreenLockPreventer
             }
         }
 
-        private bool IsStartupEnabled()
+        private static bool IsStartupEnabled()
         {
             try
             {
@@ -177,7 +182,7 @@ namespace ScreenLockPreventer
 
         private void EnableMenuItem_Click(object? sender, EventArgs e)
         {
-            if (disableTimer != null) disableTimer.Stop();
+            disableTimer?.Stop();
             PreventScreenLock();
             enableMenuItem.Checked = true;
             disableMenuItem.Checked = false;
@@ -186,7 +191,7 @@ namespace ScreenLockPreventer
 
         private void DisableMenuItem_Click(object? sender, EventArgs e)
         {
-            if (disableTimer != null) disableTimer.Stop();
+            disableTimer?.Stop();
             AllowScreenLock();
             disableMenuItem.Checked = true;
             enableMenuItem.Checked = false;
@@ -223,7 +228,7 @@ namespace ScreenLockPreventer
         private void DisableTimer_Tick(object? sender, EventArgs e)
         {
             AllowScreenLock();
-            if (disableTimer != null) disableTimer.Stop();
+            disableTimer?.Stop();
             disableMenuItem.Checked = true;
             enableMenuItem.Checked = false;
             notifyIcon1.Text = "Screen Lock Preventer (Inactive)";
@@ -254,7 +259,7 @@ namespace ScreenLockPreventer
         /// <summary>
         /// Prevents the screen from locking and the system from sleeping.
         /// </summary>
-        public void PreventScreenLock()
+        public static void PreventScreenLock()
         {
             // Only use ES_CONTINUOUS and ES_SYSTEM_REQUIRED to allow screensaver to run
             SetThreadExecutionState(ES_CONTINUOUS | ES_SYSTEM_REQUIRED);
@@ -263,7 +268,7 @@ namespace ScreenLockPreventer
         /// <summary>
         /// Allows the screen to lock and the system to sleep normally.
         /// </summary>
-        public void AllowScreenLock()
+        public static void AllowScreenLock()
         {
             SetThreadExecutionState(ES_CONTINUOUS);
         }
