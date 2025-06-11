@@ -1,29 +1,35 @@
-# Screen Lock Preventer
+# ScreenLockPreventer
 
-## Overview
-Screen Lock Preventer is a lightweight Windows utility that prevents your computer from automatically locking the screen or entering sleep mode while running. It runs in the system tray, allowing you to easily enable or disable the feature as needed.
+ScreenLockPreventer is a Windows application that prevents your computer from locking the screen or going to sleep. It runs quietly in the system tray and provides a simple context menu for control.
 
 ## Features
-- **Prevent Screen Lock**: Keep your computer awake without affecting screen savers
-- **System Tray Operation**: Runs quietly in the background with minimal resource usage
-- **Timer Function**: Set a specific duration to keep the screen unlocked
-- **Auto-start Option**: Configure the application to launch at Windows startup
-- **Easy Toggle**: Quickly enable or disable the feature through the system tray icon
+
+- **Prevent Screen Lock:** Keeps your screen active and prevents the system from sleeping.
+- **System Tray Icon:** Runs in the system tray for easy access.
+- **Context Menu:**
+    - **Enable/Disable:** Manually toggle the screen lock prevention.
+    - **Set Timer:** Set a duration (in hours) after which the screen lock prevention will automatically disable.
+    - **Run on Startup:** Configure the application to start automatically when Windows boots.
+    - **Exit:** Close the application.
+- **Customizable Icon:** Uses an embedded icon but can be customized.
 
 ## How to Use
-1. **Launch the Application**: Run ScreenLockPreventer.exe
-2. **Access Controls**: Right-click the system tray icon to access all functions
-3. **Enable/Disable**: Select "Enable" to prevent screen locking or "Disable" to restore normal behavior
-4. **Set Timer**: Choose "Set Timer..." to keep the screen unlocked for a specific duration
-5. **Auto-start**: Toggle "Run on Startup" to control whether the application launches when Windows starts
 
-## System Requirements
-- Windows operating system
-- .NET 8.0 Runtime
-- Administrator privileges (for startup configuration)
+1.  **Download:** Get the latest release from the [Releases](../../releases) page (assuming this will be the location).
+2.  **Run:** Execute the `ScreenLockPreventer.exe` file.
+3.  **Control:** Right-click the ScreenLockPreventer icon in the system tray to access the context menu options.
 
-## Technical Details
-Screen Lock Preventer uses the Windows API function `SetThreadExecutionState()` to prevent the system from automatically entering sleep mode or turning off the display. It does not interfere with manually triggered screen locks (Win+L) or screen savers.
+## Building from Source
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/ScreenLockPreventer.git
+    cd ScreenLockPreventer
+    ```
+    *(Replace `your-username` with the actual GitHub username/organization)*
+2.  **Open in Visual Studio:** Open the `ScreenLockPreventer.sln` file (or the `.csproj` file if a solution file isn't explicitly listed, though it's common for C# projects) with Visual Studio.
+3.  **Build:** Build the solution (usually `Build > Build Solution` or `Ctrl+Shift+B`). The executable will typically be found in a subfolder like `bin/Debug` or `bin/Release`.
 
 ## License
-This project is licensed under the MIT License - see the LICENSE file for details.
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
